@@ -1,1 +1,66 @@
-<p>"hi"</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Follow Cursor</title>
+    <style>
+        /* Set up full screen gradient */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6d85d2, #67d1c1, #56aade, #8f88f4);
+        }
+        
+        /* Light overlay */
+        /* Overlay styling */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 60%);
+            pointer-events: none;
+            z-index: 1; /* Lower z-index for overlay */
+        }
+
+        /* Icons styling */
+        .icons {
+            position: absolute;
+            top: 30px;  /* Adjust as needed */
+            left: 50px; /* Adjust as needed */
+            z-index: 2; /* Keep it above the overlay */
+        }
+
+        .icons img {
+            margin-right: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Icon container on top of overlay -->
+    <div class="icons">
+        <img src="icons/Home.png" alt="Home" width="40px" height="40px">
+        <img src="icons/Test.png" alt="Test" width="34px" height="34px">
+        <img src="icons/Help.png" alt="Help" width="34px" height="34px">
+    </div>
+    
+    <script>
+        // Track cursor and adjust the overlay's radial gradient
+        document.addEventListener('mousemove', (e) => {
+            const overlay = document.getElementById('overlay');
+            overlay.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 80%)`;
+        });
+    </script>
+
+</body>
+</html>
