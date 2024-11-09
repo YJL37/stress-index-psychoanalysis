@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Rorschach Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_test.css">
+</head>
+
+<body>
+    <div class="icons">
+        <a href = "../index.html">
+            <img src="../icons/Home.png" alt="Home" width="40px" height="40px">
+        </a>
+        <a href = "test.html">
+            <img src="../icons/Test.png" alt="Test" width="34px" height="34px">
+        </a>
+        <a href = "info.html">
+            <img src="../icons/Info.png" alt="Test" width="34px" height="34px">
+        </a>
+        <a href = "help.html">
+            <img src="../icons/Help.png" alt="Help" width="34px" height="34px">
+        </a>
+    </div>
+
+    <div id="test1" class="test-image">
+        <img src="../rorschach/test1.jpg" alt="Test 1">
+        <div class="test-container">
+            <input type="text" id="input1" placeholder="Enter response">
+            <button onclick="submitResponse(1)">Enter</button>
+        </div>
+    </div>
+    
+    <div id="test2" class="test-image">
+        <img src="../rorschach/test2.jpg" alt="Test 2">
+        <div class="test-container">
+            <input type="text" id="input2" placeholder="Enter response">
+            <button onclick="submitResponse(2)">Enter</button>
+        </div>
+    </div>
+    
+    <div id="test3" class="test-image">
+        <img src="../rorschach/test3.jpg" alt="Test 3">
+        <div class="test-container">
+            <input type="text" id="input3" placeholder="Enter response">
+            <button onclick="submitResponse(3)">Enter</button>
+        </div>
+    </div>
+    
+    <div id="test4" class="test-image">
+        <img src="../rorschach/test4.jpg" alt="Test 4">
+        <div class="test-container">
+            <input type="text" id="input4" placeholder="Enter response">
+            <button onclick="submitResponse(4)">Enter</button>
+        </div>
+    </div>
+    
+    <div id="test5" class="test-image">
+        <img src="../rorschach/test5.jpg" alt="Test 5">
+        <div class="test-container">
+            <input type="text" id="input5" placeholder="Enter response">
+            <button onclick="submitResponse(5)">Enter</button>
+        </div>
+    </div>
+
+    <script>
+        let responses = {};
+        let currentTest = 1;
+    
+        function showTest(testNumber) {
+            const testElement = document.getElementById(`test${testNumber}`);
+            testElement.style.display = "block";
+            testElement.classList.add("fade-in");
+            testElement.classList.remove("fade-out");
+
+        }
+
+        function hideTest(testNumber) {
+            const testElement = document.getElementById(`test${testNumber}`);
+            testElement.classList.remove("fade-in");
+            testElement.classList.add("fade-out");
+
+            // Wait for the fade-out transition to complete before hiding the element
+            setTimeout(() => {
+                testElement.style.display = "none";
+            }, 1000); // Match this time with the CSS transition duration
+        }
+    
+        function submitResponse(testNumber) {
+            const input = document.getElementById(`input${testNumber}`);
+            const response = input.value;
+    
+            if (response) {
+                responses[`response${testNumber}`] = response; // Save response in variable
+                input.value = ""; // Reset text input
+                hideTest(testNumber); // Hide current test image
+    
+                currentTest++;
+                if (currentTest <= 5) {
+                    showTest(currentTest); // Show next test image
+                } else {
+                    // Redirect to results page when done
+                    localStorage.setItem("testResponses", JSON.stringify(responses));
+                    window.location.href = "test_results.html";
+                }
+            }
+        }
+    
+        // Initialize by showing the first test image
+        showTest(currentTest);
+    </script>
+
+</body>
+</html>
