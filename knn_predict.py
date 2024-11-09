@@ -1,7 +1,10 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import KNeighborsClassifier
+from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
+
+app = Flask(__name__)
 
 class PredictBestLabel:
     def __init__(self):
@@ -77,3 +80,9 @@ res = PredictBestLabel()
 sample_data = ['Bug', 'Satan', 'God', 'Lungs', 'Colorful bug']
 prediction = res.predict(sample_data)
 print(f"Predicted label for the sample response: {prediction}")
+
+@app.route('/')
+def index():
+    data = request.get_json()
+    res = PredictBestLabel()
+    return jsonify(res.predict(data))

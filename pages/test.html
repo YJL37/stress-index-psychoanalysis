@@ -71,8 +71,10 @@
         function showTest(testNumber) {
             const testElement = document.getElementById(`test${testNumber}`);
             testElement.style.display = "block";
-            testElement.classList.add("fade-in");
-            testElement.classList.remove("fade-out");
+            setTimeout(() => {
+                testElement.classList.add("fade-in");
+                testElement.classList.remove("fade-out");
+            }, 500);
 
         }
 
@@ -84,7 +86,7 @@
             // Wait for the fade-out transition to complete before hiding the element
             setTimeout(() => {
                 testElement.style.display = "none";
-            }, 1000); // Match this time with the CSS transition duration
+            }, 500); // Match this time with the CSS transition duration
         }
     
         function submitResponse(testNumber) {
@@ -98,7 +100,9 @@
     
                 currentTest++;
                 if (currentTest <= 5) {
-                    showTest(currentTest); // Show next test image
+                    setTimeout(() => {
+                        showTest(currentTest); // Show next test image
+                    }, 500)
                 } else {
                     // Redirect to results page when done
                     localStorage.setItem("testResponses", JSON.stringify(responses));
