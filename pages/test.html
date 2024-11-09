@@ -24,15 +24,33 @@
         </a>
     </div>
 
+    <div class = "disclaimer">
+        <h2>
+            In this test, you will be shown 5 panels. Respond with the first thing that comes to mind.
+        </h2>
+        <h3>
+            <b>Disclaimer:</b> This test is for educational purposes only. It is not a clinically validated psychological assessment and should not be considered a diagnostic tool. If you are experiencing emotional distress, mental health challenges, or need support, we strongly encourage you to reach out to a licensed mental health professional or counselor.
+        </h3>
+        <button onclick="startTest()">Start</button>
+    </div>
+
     <div id="test1" class="test-image">
+        <div class="test-question">
+            <h2>What might this be?</h2>
+        </div>
         <img src="../rorschach/test1.jpg" alt="Test 1">
         <div class="test-container">
             <input type="text" id="input1" placeholder="Enter response">
             <button onclick="submitResponse(1)">Enter</button>
         </div>
+
+        
     </div>
     
     <div id="test2" class="test-image">
+        <div class="test-question">
+            <h2>What might this be?</h2>
+        </div>
         <img src="../rorschach/test2.jpg" alt="Test 2">
         <div class="test-container">
             <input type="text" id="input2" placeholder="Enter response">
@@ -41,6 +59,9 @@
     </div>
     
     <div id="test3" class="test-image">
+        <div class="test-question">
+            <h2>What might this be?</h2>
+        </div>
         <img src="../rorschach/test3.jpg" alt="Test 3">
         <div class="test-container">
             <input type="text" id="input3" placeholder="Enter response">
@@ -49,6 +70,9 @@
     </div>
     
     <div id="test4" class="test-image">
+        <div class="test-question">
+            <h2>What might this be?</h2>
+        </div>
         <img src="../rorschach/test4.jpg" alt="Test 4">
         <div class="test-container">
             <input type="text" id="input4" placeholder="Enter response">
@@ -57,6 +81,9 @@
     </div>
     
     <div id="test5" class="test-image">
+        <div class="test-question">
+            <h2>What might this be?</h2>
+        </div>
         <img src="../rorschach/test5.jpg" alt="Test 5">
         <div class="test-container">
             <input type="text" id="input5" placeholder="Enter response">
@@ -67,7 +94,21 @@
     <script>
         let responses = {};
         let currentTest = 1;
-    
+
+        function startTest() {
+            const disclaimerElement = document.querySelector('.disclaimer'); // Select by class instead of ID
+            disclaimerElement.classList.add("fade-out");
+
+            // Wait for the fade-out transition to complete before hiding the element
+            setTimeout(() => {
+                disclaimerElement.style.display = "none";
+            }, 500); // Match this time with the CSS transition duration
+
+            setTimeout(() => {
+                showTest(1);
+            }, 500)
+        }
+
         function showTest(testNumber) {
             const testElement = document.getElementById(`test${testNumber}`);
             testElement.style.display = "block";
@@ -112,7 +153,7 @@
         }
     
         // Initialize by showing the first test image
-        showTest(currentTest);
+        //showTest(currentTest);
     </script>
 
 </body>
