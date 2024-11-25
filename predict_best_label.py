@@ -1,6 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import KNeighborsClassifier
-from flask import Flask
+
 import numpy as np
 import pandas as pd
 
