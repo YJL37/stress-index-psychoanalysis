@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stress Rorschach Test</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style_test.css">
+    <link rel="stylesheet" href="style_test_results.css">
 </head>
 
 <body>
@@ -23,4 +23,26 @@
             <img src="../icons/Help.png" alt="Help" width="34px" height="34px">
         </a>
     </div>
+
+    <div class = "container">
+        <div class="glowing-circle"></div>
+
+        <div class="results">
+            <h1>Your stress level is <b>Moderate</b></h1>
+        </div>
+    </div>
+
+    <script>
+        // Example: Toggle glowing on click
+        const light = document.querySelector('.glowing-light');
+
+        light.addEventListener('click', () => {
+            // Toggle the animation by removing and adding the class
+            if (light.style.animation) {
+                light.style.animation = '';  // Stop the glowing animation
+            } else {
+                light.style.animation = 'glow 2s ease-in-out infinite';  // Restart glowing animation
+            }
+        });
+    </script>
 </body>

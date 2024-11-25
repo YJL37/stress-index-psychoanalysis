@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.icons {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    z-index: 2;
+}
+
+.icons img {
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    align-items: center; /* Vertically center the items */
+    justify-content: center; /* Horizontally center the items */
+    gap: 200px; /* Space between the glowing circle and the results */
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Style for the glowing gradient circle */
+.glowing-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #0099cc; /* Gradient of blue color */
+    animation: glow 2s ease-in-out infinite; /* Apply the glowing animation */
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.8), 0 0 30px rgba(0, 153, 204, 0.6); /* Initial soft glow */
+}
+
+/* Keyframes for the glowing effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 204, 255, 0.8), 0 0 50px rgba(0, 153, 204, 0.6), 0 0 100px rgba(0, 204, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 150px rgba(0, 204, 255, 1), 0 0 100px rgba(0, 153, 204, 0.8), 0 0 150px rgba(0, 204, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 204, 255, 0.8), 0 0 50px rgba(0, 153, 204, 0.6), 0 0 100px rgba(0, 204, 255, 0.4);
+    }
+}
+
+.glowing-circle {
+    filter: blur(20px);
+}
+
+.results h1{
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    color: #484848;
+    width: 370px;
+}
