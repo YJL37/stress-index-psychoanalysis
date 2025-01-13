@@ -36,19 +36,19 @@ a {
     border-radius: 50%;
     background: #0099cc; /* Gradient of blue color */
     animation: glow 2s ease-in-out infinite; /* Apply the glowing animation */
-    box-shadow: 0 0 15px rgba(0, 204, 255, 0.8), 0 0 30px rgba(0, 153, 204, 0.6); /* Initial soft glow */
+    box-shadow: 0 0 15px rgba(105, 180, 255, 0.8), 0 0 30px rgba(142, 198, 255, 0.8); /* Initial soft glow */
 }
 
 /* Keyframes for the glowing effect */
 @keyframes glow {
     0% {
-        box-shadow: 0 0 5px rgba(0, 204, 255, 0.8), 0 0 50px rgba(0, 153, 204, 0.6), 0 0 100px rgba(0, 204, 255, 0.4);
+        box-shadow: 0 0 5px rgba(105, 180, 255, 0.8), 0 0 50px rgba(142, 198, 255, 0.8), 0 0 100px rgba(169, 212, 255, 0.8);
     }
     50% {
-        box-shadow: 0 0 150px rgba(0, 204, 255, 1), 0 0 100px rgba(0, 153, 204, 0.8), 0 0 150px rgba(0, 204, 255, 0.6);
+        box-shadow: 0 0 150px rgba(105, 180, 255, 0.8), 0 0 100px rgba(142, 198, 255, 0.8), 0 0 150px rgba(169, 212, 255, 0.8);
     }
     100% {
-        box-shadow: 0 0 5px rgba(0, 204, 255, 0.8), 0 0 50px rgba(0, 153, 204, 0.6), 0 0 100px rgba(0, 204, 255, 0.4);
+        box-shadow: 0 0 5px rgba(105, 180, 255, 0.8), 0 0 50px rgba(142, 198, 255, 0.8), 0 0 100px rgba(169, 212, 255, 0.8);
     }
 }
 
